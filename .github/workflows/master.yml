@@ -1,0 +1,33 @@
+on: push
+name: 🚀 Deploy website on push
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          node-version: [18.x, 20.x]
+
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+
+    - name: 📦 Install dependencies
+      run: |
+        npm ci
+        npm run build --if-present
+        # npm test
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        local-dir: 	./build/
+        server: ftp.dlptest.com
+        username: dlpuser
+        password: ${{ secrets.ftp_password }}
