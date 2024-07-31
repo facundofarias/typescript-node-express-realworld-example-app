@@ -28,3 +28,8 @@ Thumbs.db
 
 # build
 /build
+
+
+
+.nx/cache
+.nx/workspace-data

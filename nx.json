@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "start": {
+      "cache": true
+    },
+    "serve": {
+      "cache": true
+    },
+    "build": {
+      "cache": true
+    }
+  },
+  "defaultBase": "master",
+  "nxCloudAccessToken": "MjU3NmFjZmEtOWFlYS00ZTlmLWEwYjctMzlmMDYyMWFhM2JlfHJlYWQtd3JpdGU="
+}
